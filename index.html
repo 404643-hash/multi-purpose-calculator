@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Purpose Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="calculator">
+            <div class="header">
+                <h1>Multi-Purpose Calculator</h1>
+                <div class="mode-selector">
+                    <button class="mode-btn active" data-mode="basic">Basic</button>
+                    <button class="mode-btn" data-mode="scientific">Scientific</button>
+                    <button class="mode-btn" data-mode="converter">Converter</button>
+                </div>
+            </div>
+
+            <!-- Basic Calculator Mode -->
+            <div class="mode basic-mode active">
+                <div class="display">
+                    <input type="text" id="display" class="display-input" readonly value="0">
+                    <div class="display-history" id="history"></div>
+                </div>
+                <div class="buttons-grid">
+                    <button class="btn clear-btn" data-action="clear">C</button>
+                    <button class="btn delete-btn" data-action="delete">DEL</button>
+                    <button class="btn operator-btn" data-operator="/">/</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn equals-btn" data-action="equals">=</button>
+
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn" data-number=".">.</button>
+                    <button class="btn toggle-btn" data-action="toggle">±</button>
+                </div>
+            </div>
+
+            <!-- Scientific Calculator Mode -->
+            <div class="mode scientific-mode">
+                <div class="display">
+                    <input type="text" id="sci-display" class="display-input" readonly value="0">
+                    <div class="display-history" id="sci-history"></div>
+                </div>
+                <div class="buttons-grid">
+                    <button class="btn clear-btn" data-action="clear-sci">C</button>
+                    <button class="btn delete-btn" data-action="delete-sci">DEL</button>
+                    <button class="btn operator-btn" data-operator="/">/</button>
+                    <button class="btn operator-btn" data-operator="*">×</button>
+
+                    <button class="btn" data-function="sin">sin</button>
+                    <button class="btn" data-function="cos">cos</button>
+                    <button class="btn" data-function="tan">tan</button>
+                    <button class="btn operator-btn" data-operator="-">−</button>
+
+                    <button class="btn" data-function="log">log</button>
+                    <button class="btn" data-function="ln">ln</button>
+                    <button class="btn" data-function="sqrt">√</button>
+                    <button class="btn operator-btn" data-operator="+">+</button>
+
+                    <button class="btn number-btn" data-number="7">7</button>
+                    <button class="btn number-btn" data-number="8">8</button>
+                    <button class="btn number-btn" data-number="9">9</button>
+                    <button class="btn" data-function="power">x²</button>
+
+                    <button class="btn number-btn" data-number="4">4</button>
+                    <button class="btn number-btn" data-number="5">5</button>
+                    <button class="btn number-btn" data-number="6">6</button>
+                    <button class="btn" data-function="factorial">n!</button>
+
+                    <button class="btn number-btn" data-number="1">1</button>
+                    <button class="btn number-btn" data-number="2">2</button>
+                    <button class="btn number-btn" data-number="3">3</button>
+                    <button class="btn equals-btn" data-action="equals-sci">=</button>
+
+                    <button class="btn number-btn" data-number="0">0</button>
+                    <button class="btn number-btn" data-number=".">.</button>
+                    <button class="btn" data-function="pi">π</button>
+                </div>
+            </div>
+
+            <!-- Converter Mode -->
+            <div class="mode converter-mode">
+                <div class="converter-container">
+                    <div class="converter-section">
+                        <h3>Temperature</h3>
+                        <div class="converter-input">
+                            <input type="number" id="temp-input" placeholder="Enter value" class="converter-input-field">
+                            <select id="temp-from" class="converter-select">
+                                <option value="celsius">Celsius (°C)</option>
+                                <option value="fahrenheit">Fahrenheit (°F)</option>
+                                <option value="kelvin">Kelvin (K)</option>
+                            </select>
+                            <span class="arrow">→</span>
+                            <select id="temp-to" class="converter-select">
+                                <option value="fahrenheit">Fahrenheit (°F)</option>
+                                <option value="celsius">Celsius (°C)</option>
+                                <option value="kelvin">Kelvin (K)</option>
+                            </select>
+                        </div>
+                        <div id="temp-result" class="converter-result"></div>
+                    </div>
+
+                    <div class="converter-section">
+                        <h3>Length</h3>
+                        <div class="converter-input">
+                            <input type="number" id="length-input" placeholder="Enter value" class="converter-input-field">
+                            <select id="length-from" class="converter-select">
+                                <option value="meter">Meter (m)</option>
+                                <option value="kilometer">Kilometer (km)</option>
+                                <option value="centimeter">Centimeter (cm)</option>
+                                <option value="mile">Mile (mi)</option>
+                                <option value="yard">Yard (yd)</option>
+                                <option value="foot">Foot (ft)</option>
+                                <option value="inch">Inch (in)</option>
+                            </select>
+                            <span class="arrow">→</span>
+                            <select id="length-to" class="converter-select">
+                                <option value="kilometer">Kilometer (km)</option>
+                                <option value="meter">Meter (m)</option>
+                                <option value="centimeter">Centimeter (cm)</option>
+                                <option value="mile">Mile (mi)</option>
+                                <option value="yard">Yard (yd)</option>
+                                <option value="foot">Foot (ft)</option>
+                                <option value="inch">Inch (in)</option>
+                            </select>
+                        </div>
+                        <div id="length-result" class="converter-result"></div>
+                    </div>
+
+                    <div class="converter-section">
+                        <h3>Weight</h3>
+                        <div class="converter-input">
+                            <input type="number" id="weight-input" placeholder="Enter value" class="converter-input-field">
+                            <select id="weight-from" class="converter-select">
+                                <option value="kilogram">Kilogram (kg)</option>
+                                <option value="gram">Gram (g)</option>
+                                <option value="milligram">Milligram (mg)</option>
+                                <option value="pound">Pound (lb)</option>
+                                <option value="ounce">Ounce (oz)</option>
+                            </select>
+                            <span class="arrow">→</span>
+                            <select id="weight-to" class="converter-select">
+                                <option value="kilogram">Kilogram (kg)</option>
+                                <option value="gram">Gram (g)</option>
+                                <option value="milligram">Milligram (mg)</option>
+                                <option value="pound">Pound (lb)</option>
+                                <option value="ounce">Ounce (oz)</option>
+                            </select>
+                        </div>
+                        <div id="weight-result" class="converter-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
